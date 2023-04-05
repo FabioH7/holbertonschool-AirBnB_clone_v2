@@ -21,7 +21,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             new_ls = []
-            for city in models.storage.all(City).values():
+            for city in models.storage.all("City").values():
                 if self.id == city.state_id:
                     new_ls.append(city)
             return new_ls

@@ -21,7 +21,7 @@ class FileStorage:
         if cls is not None:
             obj_dict = {}
             for key, value in FileStorage.__objects.items():
-                if cls == value.__class__:
+                if cls == value.__class__.__name__:
                     obj_dict[key] = value
             return obj_dict
         return FileStorage.__objects
@@ -60,4 +60,5 @@ class FileStorage:
                     break
 
     def close(self):
+        """Close the session from filestorage"""
         self.reload()
